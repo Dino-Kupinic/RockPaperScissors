@@ -3,7 +3,7 @@ package org.example.scheresteinpapier;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class SSPController {
     @FXML
     private Label welcomeText;
 
