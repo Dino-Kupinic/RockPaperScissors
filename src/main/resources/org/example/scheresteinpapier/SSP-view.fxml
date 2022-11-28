@@ -13,5 +13,10 @@
       <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="83.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="262.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="440.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="480.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/background.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
