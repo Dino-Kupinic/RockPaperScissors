@@ -4,7 +4,7 @@ public class Player {
     private int score;
     private Action action;
 
-    Player() {
+    public Player() {
         setScore(0);
         setAction(Action.NONE);
     }
