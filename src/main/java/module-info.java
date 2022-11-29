@@ -5,4 +5,6 @@ module org.example.scheresteinpapier {
 
     opens org.example.scheresteinpapier to javafx.fxml;
     exports org.example.scheresteinpapier;
+    exports org.example.scheresteinpapier.Controller;
+    opens org.example.scheresteinpapier.Controller to javafx.fxml;
 }
