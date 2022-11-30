@@ -1,32 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scheresteinpapier.Controller.SSPController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.scheresteinpapier.Controller.SSPController">
    <children>
       <ImageView fitHeight="480.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/background.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="96.0" fitWidth="107.0" layoutX="120.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/SchereOL.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="272.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/RockOL.png" />
-         </image></ImageView>
-      <ImageView fitHeight="96.0" fitWidth="96.0" layoutX="427.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/PaperOL.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="scissorButton" fitHeight="96.0" fitWidth="96.0" layoutX="120.0" layoutY="168.0" onMouseClicked="#onScissorClick" pickOnBounds="true" preserveRatio="true" styleClass="scissorButton" />
+      <ImageView fx:id="stoneButton" fitHeight="96.0" fitWidth="96.0" layoutX="272.0" layoutY="168.0" onMouseClicked="#onStoneClick" pickOnBounds="true" preserveRatio="true" styleClass="stoneButton" />
+      <ImageView fx:id="paperButton" fitHeight="96.0" fitWidth="96.0" layoutX="427.0" layoutY="168.0" onMouseClicked="#onPaperClick" pickOnBounds="true" preserveRatio="true" styleClass="paperButton" />
       <Label layoutX="72.0" layoutY="298.0" prefHeight="16.0" prefWidth="96.0" text="000" textFill="WHITE">
          <font>
             <Font name="David Libre Bold" size="37.0" />
@@ -62,9 +50,6 @@
             <Font name="David Libre Bold" size="96.0" />
          </font>
       </Label>
-      <ImageView fitHeight="48.0" fitWidth="96.0" layoutX="270.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/Pick.png" />
-         </image></ImageView>
+      <ImageView fitHeight="48.0" fitWidth="96.0" layoutX="270.0" layoutY="294.0" onMouseClicked="#onPickClick" pickOnBounds="true" preserveRatio="true" styleClass="pickButton" />
    </children>
 </AnchorPane>

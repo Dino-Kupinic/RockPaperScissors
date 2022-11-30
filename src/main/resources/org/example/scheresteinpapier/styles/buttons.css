@@ -1,0 +1,31 @@
+.scissorButton {
+    -fx-image: url("../img/SchereNOL.png");
+}
+
+.scissorButton:hover {
+    -fx-image: url("../img/SchereOL.png");
+}
+
+.stoneButton {
+    -fx-image: url("../img/RockNOL.png");
+}
+
+.stoneButton:hover {
+    -fx-image: url("../img/RockOL.png");
+}
+
+.paperButton {
+    -fx-image: url("../img/PaperNOL.png");
+}
+
+.paperButton:hover {
+    -fx-image: url("../img/PaperOL.png");
+}
+
+.pickButton {
+    -fx-image: url("../img/Pick.png");
+}
+
+.pickButton:hover {
+    -fx-image: url("../img/PickHover.png");
+}

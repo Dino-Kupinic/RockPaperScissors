@@ -13,17 +13,23 @@ public class SSPController {
         player.setAction(Action.SCISSOR);
         System.out.println(player.getAction());
     }
+
     @FXML
     private void onStoneClick() {
         player.setAction(Action.STONE);
         System.out.println(player.getAction());
 
     }
+
     @FXML
     private void onPaperClick() {
         player.setAction(Action.PAPER);
         System.out.println(player.getAction());
 
+    }
+    @FXML
+    private void onPickClick() {
+        System.out.println("pick");
     }
 
 }
