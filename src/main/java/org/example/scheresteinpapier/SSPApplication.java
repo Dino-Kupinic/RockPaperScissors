@@ -15,6 +15,7 @@ public class SSPApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 640, 480);
         scene.getStylesheets().addAll(Objects.requireNonNull(getClass().getResource("styles/buttons.css")).toExternalForm());
         stage.setTitle("Schere Stein Papier");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
