@@ -31,11 +31,11 @@
          </font>
       </Label>
       <Label layoutX="27.0" layoutY="405.0" text="ENEMY PICK:" textFill="WHITE">
-         <font>
+         <font>   
             <Font name="David Libre Bold" size="32.0" />
          </font>
       </Label>
-      <Label layoutX="226.0" layoutY="352.0" text="*yPICK*" textFill="WHITE">
+      <Label fx:id="playerPick" layoutX="226.0" layoutY="352.0" text="*yPICK*" textFill="WHITE">
          <font>
             <Font name="Lucida Handwriting Italic" size="32.0" />
          </font>
