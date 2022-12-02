@@ -9,29 +9,28 @@ import org.example.scheresteinpapier.Model.Logic;
 import org.example.scheresteinpapier.Model.Player;
 
 public class SSPController {
-    Player player = new Player();
     @FXML
     private Label playerPick;
+
+    Player player = new Player();
 
     @FXML
     private void onScissorClick() {
         player.setAction(Action.SCISSOR);
-        Logic.checkRoundWin(player, Computer.generateComputerChoice());
-        System.out.println(player.getAction());
+        Logic.checkRoundWin(player, Computer.getComputerChoice());
+
         playerPick.setText("SCISSORS");
     }
 
     @FXML
     private void onStoneClick() {
         player.setAction(Action.ROCK);
-        System.out.println(player.getAction());
         playerPick.setText("ROCK");
     }
 
     @FXML
     private void onPaperClick() {
         player.setAction(Action.PAPER);
-        System.out.println(player.getAction());
         playerPick.setText("PAPER");
     }
     @FXML
