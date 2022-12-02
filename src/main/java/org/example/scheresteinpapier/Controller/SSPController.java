@@ -14,6 +14,14 @@ import org.example.scheresteinpapier.Model.Player;
 public class SSPController {
     @FXML
     private Label playerPick;
+    @FXML
+    private Label computerPick;
+    @FXML
+    private Label comLabel;
+    @FXML
+    private Label winLossLabel;
+
+    private boolean showedResult = false;
 
     Player player = new Player();
 
@@ -21,22 +29,57 @@ public class SSPController {
     private void onScissorClick() {
         player.setAction(Action.SCISSOR);
         playerPick.setText(String.valueOf(Action.SCISSOR));
+        if (showedResult) resetSelections();
+        showedResult = false;
+
     }
 
     @FXML
     private void onStoneClick() {
         player.setAction(Action.ROCK);
         playerPick.setText(String.valueOf(Action.ROCK));
+        if (showedResult) resetSelections();
+        showedResult = false;
+
     }
 
     @FXML
     private void onPaperClick() {
         player.setAction(Action.PAPER);
         playerPick.setText(String.valueOf(Action.PAPER));
+        if (showedResult) resetSelections();
+        showedResult = false;
+
     }
 
     @FXML
     private void onPickClick() {
-        Logic.checkRoundWin(player, Computer.getComputerChoice());
+        Player computer = Computer.getComputerChoice();
+        computerPick.setText(String.valueOf(computer.getAction()));
+        Logic logic = new Logic(player, computer);
+        logic.checkRoundWin();
+        showResult();
+
     }
+
+    private void resetSelections() {
+        computerPick.setText(String.valueOf(Action.NONE));
+        playerPick.setText(String.valueOf(Action.NONE));
+        computerPick.setVisible(false);
+        comLabel.setVisible(false);
+        winLossLabel.setVisible(false);
+    }
+
+    private void showResult() {
+        computerPick.setVisible(true);
+        comLabel.setVisible(true);
+
+        winLossLabel.setText(Logic.outcome);
+        winLossLabel.setVisible(true);
+
+        showedResult = true;
+
+    }
+
+
 }

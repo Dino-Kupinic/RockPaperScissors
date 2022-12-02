@@ -1,47 +1,82 @@
 package org.example.scheresteinpapier.Model;
 
+import java.util.Objects;
+
 /**
  * Class for deciding who won the game
  */
 public class Logic {
     public static boolean isSelectionValid = false;
+    public static String outcome = "";
 
-    /**
-     * Function which is called when the pick button is pressed
-     * @param player1
-     * @param player2
-     */
-    public static void checkRoundWin(Player player1, Player player2) {
-        checkValidInput(player1, player2);
-        checkGameDraw(player1, player2);
-        checkGameWinner(player1, player2);
+    Player logicPlayer;
+    Player logicComPlayer;
+
+    public Logic(Player player1, Player player2) {
+        logicPlayer = player1;
+        logicComPlayer = player2;
     }
 
-    private static void checkValidInput(Player player1, Player player2) {
-        if (player1.getAction() == Action.NONE && player2.getAction() == Action.NONE) {
+    public void checkRoundWin() {
+        checkValidInput();
+        checkGameDraw();
+        continueLogic();
+    }
+
+    private void continueLogic() {
+        if (!Objects.equals(outcome, "DRAW!")) {
+            checkGameWinner();
+        }
+    }
+
+    private void checkValidInput() {
+        if (logicPlayer.getAction() != Action.NONE && logicComPlayer.getAction() != Action.NONE) {
             isSelectionValid = true;
         }
     }
 
-    private static void checkGameDraw (Player player1, Player player2){
-        if (player1.getAction() == player2.getAction()){
-            // Label: game draw
+    private void checkGameDraw() {
+        if (isSelectionValid && logicPlayer.getAction() == logicComPlayer.getAction()) {
+            outcome = "DRAW!";
         }
     }
 
-    private static void checkGameWinner (Player player1, Player player2){
-        if ( player1.getAction() == Action.SCISSOR && player2.getAction() == Action.PAPER){
-            // Label: game won
-        } else if ( player1.getAction() == Action.ROCK && player2.getAction() == Action.SCISSOR){
-            // Label: game won
-        } else if ( player1.getAction() == Action.PAPER && player2.getAction() == Action.ROCK){
-            // Label: game won
-        } else{
-            // Label: game loss
+    private void checkGameWinner(){
+        switch (logicPlayer.getAction()) {
+            case SCISSOR:
+                outcome = checkScissorCases();
+                break;
+            case ROCK:
+                outcome = checkRockCases();
+                break;
+            case PAPER:
+                outcome = checkPaperCases();
+                break;
         }
-
-
     }
 
+    private String checkScissorCases() {
+        if (logicComPlayer.getAction() == Action.ROCK) {
+            return "WIN!";
+        } else {
+            return "LOSS!";
+        }
+    }
+
+    private String checkRockCases() {
+        if (logicComPlayer.getAction() == Action.SCISSOR) {
+            return "WIN!";
+        } else {
+            return "LOSS!";
+        }
+    }
+
+    private String checkPaperCases() {
+        if (logicComPlayer.getAction() == Action.ROCK) {
+            return "WIN!";
+        } else {
+            return "LOSS!";
+        }
+    }
 
 }
