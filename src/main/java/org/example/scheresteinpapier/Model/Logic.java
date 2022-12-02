@@ -1,6 +1,16 @@
 package org.example.scheresteinpapier.Model;
 
+/**
+ * Class for deciding who won the game
+ */
 public class Logic {
+    public static boolean isSelectionValid = false;
+
+    /**
+     * Function which is called when the pick button is pressed
+     * @param player1
+     * @param player2
+     */
     public static void checkRoundWin(Player player1, Player player2) {
         checkValidInput(player1, player2);
         checkGameDraw(player1, player2);
@@ -9,7 +19,7 @@ public class Logic {
 
     private static void checkValidInput(Player player1, Player player2) {
         if (player1.getAction() == Action.NONE && player2.getAction() == Action.NONE) {
-            // Label: no selection
+            isSelectionValid = true;
         }
     }
 

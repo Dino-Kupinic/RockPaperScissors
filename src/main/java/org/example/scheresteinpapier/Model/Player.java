@@ -9,6 +9,11 @@ public class Player {
         setAction(Action.NONE);
     }
 
+    public Player(int score, Action action) {
+        setScore(score);
+        setAction(action);
+    }
+
     public int getScore() {
         return score;
     }
