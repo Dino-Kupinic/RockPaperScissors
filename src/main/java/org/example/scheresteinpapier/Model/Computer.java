@@ -1,6 +1,13 @@
 package org.example.scheresteinpapier.Model;
 
+/**
+ * class to handle non-Player actions
+ */
 public class Computer {
+    /**
+     * Function to return a computer choice
+     * @return an action value of either ROCK, PAPER or SCISSOR
+     */
     public static Player getComputerChoice() {
         Action computerAction = getComputerAction();
         return new Player(0, computerAction);
