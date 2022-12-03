@@ -14,6 +14,8 @@
 
 package org.example.scheresteinpapier.Model;
 
+import org.example.scheresteinpapier.Exceptions.InvalidComputerAction;
+
 /**
  * class to handle non-Player actions
  */
@@ -23,7 +25,7 @@ public class Computer {
      * Function to return a computer choice
      * @return an action value of either ROCK, PAPER or SCISSOR
      */
-    public static Player getComputerChoice() {
+    public static Player getComputerChoice() throws InvalidComputerAction {
         Action computerAction = getComputerAction();
         return new Player(0, computerAction);
     }
@@ -40,7 +42,7 @@ public class Computer {
      * Function to evaluate number into a valid action
      * @return Action which will be evaluated in order to decide who won the game
      */
-    private static Action getComputerAction() {
+    private static Action getComputerAction() throws InvalidComputerAction {
         switch ((int) generateRandomNumber()) {
             case 1:
                 return Action.ROCK;
@@ -49,6 +51,6 @@ public class Computer {
             case 3:
                 return Action.SCISSOR;
         }
-        return Action.NONE; // TODO: Add Exception
+        throw new InvalidComputerAction();
     }
 }
