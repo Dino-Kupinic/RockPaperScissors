@@ -1,9 +1,24 @@
+/*-----------------------------------------------------------------------------
+ *              Hoehere Technische Bundeslehranstalt STEYR
+ *----------------------------------------------------------------------------*/
+/**
+ * Kurzbeschreibung
+ *
+ * @author  : Dino Kupinic, Max Wöss
+ * @date    : 1.1.2022
+ *
+ * @details
+ *   Detailbeschreibung
+ *
+ */
+
 package org.example.scheresteinpapier.Model;
 
 /**
  * class to handle non-Player actions
  */
 public class Computer {
+    
     /**
      * Function to return a computer choice
      * @return an action value of either ROCK, PAPER or SCISSOR
