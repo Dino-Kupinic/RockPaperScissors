@@ -56,27 +56,24 @@ public class Logic {
     }
 
     private String checkScissorCases() {
-        if (logicComPlayer.getAction() == Action.ROCK) {
-            return "WIN!";
-        } else {
-            return "LOSS!";
-        }
+        if (logicComPlayer.getAction() == Action.PAPER) return "WIN!";
+        if (logicComPlayer.getAction() == Action.ROCK) return "LOSS!";
+        return returnInvalidCase();
     }
 
     private String checkRockCases() {
-        if (logicComPlayer.getAction() == Action.SCISSOR) {
-            return "WIN!";
-        } else {
-            return "LOSS!";
-        }
+        if (logicComPlayer.getAction() == Action.SCISSOR) return "WIN!";
+        if (logicComPlayer.getAction() == Action.PAPER) return "LOSS!";
+        return returnInvalidCase();
     }
 
     private String checkPaperCases() {
-        if (logicComPlayer.getAction() == Action.ROCK) {
-            return "WIN!";
-        } else {
-            return "LOSS!";
-        }
+        if (logicComPlayer.getAction() == Action.ROCK) return "WIN!";
+        if (logicComPlayer.getAction() == Action.SCISSOR) return "LOSS!";
+        return returnInvalidCase();
     }
 
+    private String returnInvalidCase() {
+        return "UNDEFINED";
+    }
 }
