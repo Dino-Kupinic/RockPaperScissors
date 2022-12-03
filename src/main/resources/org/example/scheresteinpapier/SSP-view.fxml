@@ -53,6 +53,6 @@
          </font>
       </Label>
       <ImageView fx:id="pickButton" fitHeight="48.0" fitWidth="96.0" layoutX="272.0" layoutY="302.0" onMouseClicked="#onPickClick" pickOnBounds="true" preserveRatio="true" styleClass="pickButton" />
-      <ProgressBar fx:id="progressBar" layoutX="449.0" layoutY="317.0" prefHeight="20.0" prefWidth="160.0" progress="0.0" />
+      <ProgressBar fx:id="progressBar" layoutX="463.0" layoutY="317.0" prefHeight="18.0" prefWidth="120.0" progress="0.0" />
    </children>
 </AnchorPane>

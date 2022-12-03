@@ -70,12 +70,26 @@ public class SSPController {
     @FXML
     private void onPickClick() throws InterruptedException {
         Player computer = Computer.getComputerChoice();
+
         computerPick.setText(String.valueOf(computer.getAction()));
         Logic logic = new Logic(player, computer);
+
         logic.checkRoundWin();
         ProgressBarHandler.loadProgressBar(progressBar);
+
         showResult();
+        modifyScore();
         disablePickButtonOnRoundEnd();
+    }
+
+    @FXML
+    private void modifyScore() {
+        if (Logic.outcome.equals("WIN!")) {
+            Score.addToScore();
+        } else {
+            Score.subtractFromScore();
+        }
+        scoreLabel.setText(String.valueOf(Score.score));
     }
 
 
