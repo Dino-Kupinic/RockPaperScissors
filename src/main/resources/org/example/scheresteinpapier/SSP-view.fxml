@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +17,7 @@
       <ImageView fx:id="scissorButton" fitHeight="96.0" fitWidth="96.0" layoutX="120.0" layoutY="168.0" onMouseClicked="#onScissorClick" pickOnBounds="true" preserveRatio="true" styleClass="scissorButton" />
       <ImageView fx:id="stoneButton" fitHeight="96.0" fitWidth="96.0" layoutX="272.0" layoutY="168.0" onMouseClicked="#onStoneClick" pickOnBounds="true" preserveRatio="true" styleClass="stoneButton" />
       <ImageView fx:id="paperButton" fitHeight="96.0" fitWidth="96.0" layoutX="427.0" layoutY="168.0" onMouseClicked="#onPaperClick" pickOnBounds="true" preserveRatio="true" styleClass="paperButton" />
-      <Label layoutX="90.0" layoutY="304.0" prefHeight="16.0" prefWidth="96.0" text="0" textFill="WHITE">
+      <Label fx:id="scoreLabel" layoutX="90.0" layoutY="304.0" prefHeight="16.0" prefWidth="96.0" text="0" textFill="WHITE">
          <font>
             <Font name="Arial" size="37.0" />
          </font>
@@ -52,5 +53,6 @@
          </font>
       </Label>
       <ImageView fx:id="pickButton" fitHeight="48.0" fitWidth="96.0" layoutX="272.0" layoutY="302.0" onMouseClicked="#onPickClick" pickOnBounds="true" preserveRatio="true" styleClass="pickButton" />
+      <ProgressBar fx:id="progressBar" layoutX="449.0" layoutY="317.0" prefHeight="20.0" prefWidth="160.0" progress="0.0" />
    </children>
 </AnchorPane>

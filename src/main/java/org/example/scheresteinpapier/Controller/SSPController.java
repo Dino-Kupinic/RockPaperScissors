@@ -16,11 +16,9 @@ package org.example.scheresteinpapier.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
-import org.example.scheresteinpapier.Model.Action;
-import org.example.scheresteinpapier.Model.Computer;
-import org.example.scheresteinpapier.Model.Logic;
-import org.example.scheresteinpapier.Model.Player;
+import org.example.scheresteinpapier.Model.*;
 
 /**
  * Controller to handle user actions
@@ -36,6 +34,10 @@ public class SSPController {
     private Label winLossLabel;
     @FXML
     private ImageView pickButton;
+    @FXML
+    private Label scoreLabel;
+    @FXML
+    private ProgressBar progressBar;
 
     private boolean showedResult = false;
 
@@ -66,14 +68,17 @@ public class SSPController {
     }
 
     @FXML
-    private void onPickClick() {
+    private void onPickClick() throws InterruptedException {
         Player computer = Computer.getComputerChoice();
         computerPick.setText(String.valueOf(computer.getAction()));
         Logic logic = new Logic(player, computer);
         logic.checkRoundWin();
+        ProgressBarHandler.loadProgressBar(progressBar);
         showResult();
         disablePickButtonOnRoundEnd();
     }
+
+
 
     private void disablePickButtonOnRoundEnd() {
         pickButton.setDisable(true);
