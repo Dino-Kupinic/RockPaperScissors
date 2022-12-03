@@ -51,6 +51,6 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <ImageView fitHeight="48.0" fitWidth="96.0" layoutX="272.0" layoutY="302.0" onMouseClicked="#onPickClick" pickOnBounds="true" preserveRatio="true" styleClass="pickButton" />
+      <ImageView fx:id="pickButton" fitHeight="48.0" fitWidth="96.0" layoutX="272.0" layoutY="302.0" onMouseClicked="#onPickClick" pickOnBounds="true" preserveRatio="true" styleClass="pickButton" />
    </children>
 </AnchorPane>
