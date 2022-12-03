@@ -1,8 +1,8 @@
 package org.example.scheresteinpapier.Controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import org.example.scheresteinpapier.Model.Action;
 import org.example.scheresteinpapier.Model.Computer;
 import org.example.scheresteinpapier.Model.Logic;
@@ -20,6 +20,8 @@ public class SSPController {
     private Label comLabel;
     @FXML
     private Label winLossLabel;
+    @FXML
+    private ImageView pickButton;
 
     private boolean showedResult = false;
 
@@ -29,27 +31,24 @@ public class SSPController {
     private void onScissorClick() {
         player.setAction(Action.SCISSOR);
         playerPick.setText(String.valueOf(Action.SCISSOR));
-        if (showedResult) resetSelections();
-        showedResult = false;
-
+        enablePickButtonOnNewRound();
+        roundLogic();
     }
 
     @FXML
     private void onStoneClick() {
         player.setAction(Action.ROCK);
         playerPick.setText(String.valueOf(Action.ROCK));
-        if (showedResult) resetSelections();
-        showedResult = false;
-
+        enablePickButtonOnNewRound();
+        roundLogic();
     }
 
     @FXML
     private void onPaperClick() {
         player.setAction(Action.PAPER);
         playerPick.setText(String.valueOf(Action.PAPER));
-        if (showedResult) resetSelections();
-        showedResult = false;
-
+        enablePickButtonOnNewRound();
+        roundLogic();
     }
 
     @FXML
@@ -59,27 +58,43 @@ public class SSPController {
         Logic logic = new Logic(player, computer);
         logic.checkRoundWin();
         showResult();
+        disablePickButtonOnRoundEnd();
+    }
 
+    private void disablePickButtonOnRoundEnd() {
+        pickButton.setDisable(true);
+    }
+
+    private void enablePickButtonOnNewRound() {
+        pickButton.setDisable(false);
+    }
+
+    private void roundLogic() {
+        if (showedResult) resetSelections();
+        showedResult = false;
     }
 
     private void resetSelections() {
         computerPick.setText(String.valueOf(Action.NONE));
-        playerPick.setText(String.valueOf(Action.NONE));
+        disableVisiblity();
+        Logic.outcome = "";
+    }
+
+    private void showResult() {
+        winLossLabel.setText(Logic.outcome);
+        enableVisiblity();
+        showedResult = true;
+    }
+
+    private void enableVisiblity() {
+        computerPick.setVisible(true);
+        comLabel.setVisible(true);
+        winLossLabel.setVisible(true);
+    }
+
+    private void disableVisiblity() {
         computerPick.setVisible(false);
         comLabel.setVisible(false);
         winLossLabel.setVisible(false);
     }
-
-    private void showResult() {
-        computerPick.setVisible(true);
-        comLabel.setVisible(true);
-
-        winLossLabel.setText(Logic.outcome);
-        winLossLabel.setVisible(true);
-
-        showedResult = true;
-
-    }
-
-
 }
