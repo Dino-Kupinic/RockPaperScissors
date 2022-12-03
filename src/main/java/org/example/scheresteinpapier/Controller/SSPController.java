@@ -92,8 +92,6 @@ public class SSPController {
         scoreLabel.setText(String.valueOf(Score.score));
     }
 
-
-
     private void disablePickButtonOnRoundEnd() {
         pickButton.setDisable(true);
     }

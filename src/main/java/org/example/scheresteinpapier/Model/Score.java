@@ -20,11 +20,11 @@ public class Score {
     public static int scoreLoss = 1;
 
     public static void subtractFromScore() {
-        score -= 1;
+        score -= scoreLoss;
     }
 
     public static void addToScore() {
-        score += 2;
+        score += scoreGain;
     }
 
 }
