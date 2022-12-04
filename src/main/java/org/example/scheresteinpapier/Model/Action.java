@@ -5,10 +5,10 @@
  * Kurzbeschreibung
  *
  * @author  : Dino Kupinic, Max Wöss
- * @date    : 1.1.2022
+ * @date    : 3.12.2022
  *
  * @details
- *   Detailbeschreibung
+ *   Enum with possible rock paper scissor actions
  *
  */
 

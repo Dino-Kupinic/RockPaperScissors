@@ -5,10 +5,10 @@
  * Kurzbeschreibung
  *
  * @author  : Dino Kupinic, Max Wöss
- * @date    : 1.1.2022
+ * @date    : 4.12.2022
  *
  * @details
- *   Detailbeschreibung
+ *   class to handle non-Player actions
  *
  */
 
@@ -16,9 +16,6 @@ package org.example.scheresteinpapier.Model;
 
 import org.example.scheresteinpapier.Exceptions.InvalidComputerAction;
 
-/**
- * class to handle non-Player actions
- */
 public class Computer {
     
     /**
@@ -27,7 +24,7 @@ public class Computer {
      */
     public static Player getComputerChoice() throws InvalidComputerAction {
         Action computerAction = getComputerAction();
-        return new Player(0, computerAction);
+        return new Player(computerAction);
     }
 
     /**

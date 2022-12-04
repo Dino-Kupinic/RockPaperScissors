@@ -18,11 +18,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import org.example.scheresteinpapier.Exceptions.InvalidComputerAction;
+import org.example.scheresteinpapier.Exceptions.InvalidLogicCase;
 import org.example.scheresteinpapier.Model.*;
 
-/**
- * Controller to handle user actions
- */
 public class SSPController {
 
     /**
@@ -129,11 +127,15 @@ public class SSPController {
      * @throws InterruptedException
      */
     private void checkWinnerAndDisplayResults(Logic logic) throws InterruptedException {
-        logic.checkRoundWin();
-        ProgressBarHandler.loadProgressBar(progressBar);
-        showResult();
-        updateScore();
-        disablePickButtonOnRoundEnd();
+        try {
+            logic.checkRoundWin();
+            ProgressBarHandler.loadProgressBar(progressBar);
+            showResult();
+            updateScore();
+            disablePickButtonOnRoundEnd();
+        } catch (InvalidLogicCase e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**

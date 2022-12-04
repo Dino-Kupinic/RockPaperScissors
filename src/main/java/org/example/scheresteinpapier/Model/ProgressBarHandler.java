@@ -1,3 +1,16 @@
+/*-----------------------------------------------------------------------------
+ *              Hoehere Technische Bundeslehranstalt STEYR
+ *----------------------------------------------------------------------------*/
+/**
+ * Kurzbeschreibung
+ *
+ * @author  : Dino Kupinic, Max Wöss
+ * @date    : 4.12.2022
+ *
+ * @details
+ *   Class to handle the progress bar
+ */
+
 package org.example.scheresteinpapier.Model;
 
 import javafx.scene.control.ProgressBar;
