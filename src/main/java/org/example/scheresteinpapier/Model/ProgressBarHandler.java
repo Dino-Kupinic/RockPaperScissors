@@ -20,7 +20,7 @@ import java.util.Date;
 
 public class ProgressBarHandler extends Thread {
     public static boolean isDone = false;
-    public static void loadProgressBar(ProgressBar bar) {
+    public void loadProgressBar(ProgressBar bar) {
         final Task<Void> task = new Task<>() {
             final int ITERNATIONS = 100;
 
@@ -39,9 +39,7 @@ public class ProgressBarHandler extends Thread {
 
         };
 
-        bar.progressProperty().bind(
-                task.progressProperty()
-        );
+        bar.progressProperty().bind(task.progressProperty());
 
         final Thread thread = new Thread(task, "task-thread");
         thread.setDaemon(true);

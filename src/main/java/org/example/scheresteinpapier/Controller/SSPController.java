@@ -132,12 +132,15 @@ public class SSPController {
     /**
      * Function to initialize functions which check the winner and update the screen
      * @param logic Parameter with the static outcome variable
-     * @throws InterruptedException
      */
-    private void checkWinnerAndDisplayResults(Logic logic) throws InterruptedException {
+    private void checkWinnerAndDisplayResults(Logic logic) {
         try {
             logic.checkRoundWin();
-            ProgressBarHandler.loadProgressBar(progressBar);
+
+            ProgressBarHandler progressBarHandler = new ProgressBarHandler();
+            progressBarHandler.loadProgressBar(progressBar);
+            progressBarHandler.join();
+
             if (ProgressBarHandler.isDone) {
                 showResult();
                 updateScore();
@@ -145,6 +148,8 @@ public class SSPController {
             }
         } catch (InvalidLogicCase e) {
             System.out.println(e.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 
