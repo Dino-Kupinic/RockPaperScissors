@@ -13,18 +13,42 @@
 
 package org.example.scheresteinpapier.Model;
 
+import javafx.concurrent.Task;
 import javafx.scene.control.ProgressBar;
 
+import java.util.Date;
+
 public class ProgressBarHandler extends Thread {
-    static double barFill = 0.0;
+    public static boolean isDone = false;
+    public static void loadProgressBar(ProgressBar bar) {
+        final Task<Void> task = new Task<>() {
+            final int ITERNATIONS = 100;
 
-    static Thread myThread = new Thread();
+            @Override
+            protected Void call() throws Exception {
+                Date startDate = new Date();
+                for (int i = 0; i < ITERNATIONS; i++) {
+                    updateProgress(i + 1, ITERNATIONS);
+                    Thread.sleep(10);
+                }
+                Date endDate = new Date();
+                int seconds = getTimePassed(startDate, endDate);
+                if (seconds == 1) isDone = true;
+                return null;
+            }
 
-    public static void loadProgressBar(ProgressBar bar) throws InterruptedException {
-        for (int i = 0; i <= 10; i++) {
-            barFill += 0.10;
-            bar.setProgress(barFill);
-            myThread.sleep(5);
-        }
+        };
+
+        bar.progressProperty().bind(
+                task.progressProperty()
+        );
+
+        final Thread thread = new Thread(task, "task-thread");
+        thread.setDaemon(true);
+        thread.start();
+    }
+
+    private static int getTimePassed(Date startDate, Date endDate) {
+        return (int)((endDate.getTime() - startDate.getTime()) / 1000);
     }
 }

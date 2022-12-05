@@ -52,6 +52,14 @@ public class SSPController {
     Player player = new Player();
 
     /**
+     * Disable button on program start
+     */
+    @FXML
+    public void initialize() {
+        disablePickButtonOnRoundEnd();
+    }
+
+    /**
      * Function to change the player pick label
      */
     @FXML
@@ -130,9 +138,11 @@ public class SSPController {
         try {
             logic.checkRoundWin();
             ProgressBarHandler.loadProgressBar(progressBar);
-            showResult();
-            updateScore();
-            disablePickButtonOnRoundEnd();
+            if (ProgressBarHandler.isDone) {
+                showResult();
+                updateScore();
+                disablePickButtonOnRoundEnd();
+            }
         } catch (InvalidLogicCase e) {
             System.out.println(e.getMessage());
         }
