@@ -23,12 +23,6 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class SSPApplication extends Application {
-
-    /**
-     * start function with reference to stylesheet
-     * @param stage
-     * @throws IOException
-     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SSPApplication.class.getResource("SSP-view.fxml"));
@@ -40,10 +34,6 @@ public class SSPApplication extends Application {
         stage.show();
     }
 
-    /**
-     * main function to start the JavaFX program
-     * @param args
-     */
     public static void main(String[] args) {
         launch();
     }

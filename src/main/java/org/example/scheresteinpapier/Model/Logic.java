@@ -19,14 +19,7 @@ import java.util.Objects;
 
 public class Logic {
 
-    /**
-     * boolean to see if selection is valid or not
-     */
     public static boolean isSelectionValid = false;
-
-    /**
-     * String which contains either "WIN!", "LOSS!", "DRAW!" or "UNDEFINED"
-     */
     public static String outcome = "";
 
     /**

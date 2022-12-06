@@ -94,10 +94,9 @@ public class SSPController {
 
     /**
      * Function to request a computer choice and pass it into the Logic class for evaluation
-     * @throws InterruptedException
      */
     @FXML
-    private void onPickClick() throws InterruptedException {
+    private void onPickClick() {
         try {
             Player computer = Computer.getComputerChoice();
             computerPick.setText(String.valueOf(computer.getAction()));
