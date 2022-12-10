@@ -138,17 +138,12 @@ public class SSPController {
 
             ProgressBarHandler progressBarHandler = new ProgressBarHandler();
             progressBarHandler.loadProgressBar(progressBar);
-            progressBarHandler.join();
 
-            if (ProgressBarHandler.isDone) {
-                showResult();
-                updateScore();
-                disablePickButtonOnRoundEnd();
-            }
+            showResult();
+            updateScore();
+            disablePickButtonOnRoundEnd();
         } catch (InvalidLogicCase e) {
             System.out.println(e.getMessage());
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
     }
 
