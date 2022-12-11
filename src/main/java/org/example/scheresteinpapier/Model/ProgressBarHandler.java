@@ -19,21 +19,16 @@ import javafx.scene.control.ProgressBar;
 import java.util.Date;
 
 public class ProgressBarHandler extends Thread {
-    public static boolean isDone = false;
     public void loadProgressBar(ProgressBar bar) {
         final Task<Void> task = new Task<>() {
             final int ITERNATIONS = 100;
 
             @Override
             protected Void call() throws Exception {
-                Date startDate = new Date();
                 for (int i = 0; i < ITERNATIONS; i++) {
                     updateProgress(i + 1, ITERNATIONS);
                     Thread.sleep(10);
                 }
-                Date endDate = new Date();
-                int seconds = getTimePassed(startDate, endDate);
-                if (seconds == 1) isDone = true;
                 return null;
             }
 
@@ -44,9 +39,5 @@ public class ProgressBarHandler extends Thread {
         final Thread thread = new Thread(task, "task-thread");
         thread.setDaemon(true);
         thread.start();
-    }
-
-    private static int getTimePassed(Date startDate, Date endDate) {
-        return (int)((endDate.getTime() - startDate.getTime()) / 1000);
     }
 }
