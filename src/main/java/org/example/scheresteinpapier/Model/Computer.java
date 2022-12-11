@@ -19,7 +19,7 @@ import org.example.scheresteinpapier.Exceptions.InvalidComputerAction;
 public class Computer {
     
     /**
-     * Function to return a computer choice
+     * return a computer choice
      * @return an action value of either ROCK, PAPER or SCISSOR
      */
     public static Player getComputerChoice() throws InvalidComputerAction {
@@ -28,7 +28,7 @@ public class Computer {
     }
 
     /**
-     * Function to generate value between 1 and 3 which gets evaluated into an action
+     * generate value between 1 and 3 which gets evaluated into an action
      * @return a double value (1.0, 2.0 or 3.0)
      */
     private static double generateRandomNumber() {
@@ -36,7 +36,7 @@ public class Computer {
     }
 
     /**
-     * Function to evaluate number into a valid action
+     * evaluate number into a valid action
      * @return Action which will be evaluated in order to decide who won the game
      */
     private static Action getComputerAction() throws InvalidComputerAction {

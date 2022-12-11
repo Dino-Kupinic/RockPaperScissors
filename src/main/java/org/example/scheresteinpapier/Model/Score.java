@@ -19,14 +19,14 @@ public class Score {
     public static int scoreLoss = 1;
 
     /**
-     * Function to subtract from the player score based on the global scoreLoss variable
+     * subtract from the player score based on the global scoreLoss variable
      */
     public static void subtractFromScore() {
         score -= scoreLoss;
     }
 
     /**
-     * Function to add to the player score based on the global scoreGain variable
+     * add to the player score based on the global scoreGain variable
      */
     public static void addToScore() {
         score += scoreGain;

@@ -14,10 +14,6 @@
 package org.example.scheresteinpapier.Exceptions;
 
 public class InvalidLogicCase extends Exception{
-
-    /**
-     * exception constructor with an exception message
-     */
     public InvalidLogicCase() {
         super("The comPlayer is invalid");
     }

@@ -19,6 +19,10 @@ import javafx.scene.control.ProgressBar;
 import java.util.Date;
 
 public class ProgressBarHandler extends Thread {
+    /**
+     * create a new thread and load the progress bar
+     * @param bar the FXML progress bar
+     */
     public void loadProgressBar(ProgressBar bar) {
         final Task<Void> task = new Task<>() {
             final int ITERNATIONS = 100;

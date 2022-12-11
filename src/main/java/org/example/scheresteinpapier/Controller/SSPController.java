@@ -41,26 +41,20 @@ public class SSPController {
     @FXML
     private ProgressBar progressBar;
 
-    /**
-     * boolean to determine whether a new round can begin
-     */
     private boolean showedResult = false;
-
-    /**
-     * Player object
-     */
-    Player player = new Player();
+    Player player;
 
     /**
      * Disable button on program start
      */
     @FXML
     public void initialize() {
+        player = new Player();
         disablePickButtonOnRoundEnd();
     }
 
     /**
-     * Function to change the player pick label
+     * change the player pick label
      */
     @FXML
     private void onScissorClick() {
@@ -71,7 +65,7 @@ public class SSPController {
     }
 
     /**
-     * Function to change the player pick label
+     * change the player pick label
      */
     @FXML
     private void onStoneClick() {
@@ -82,7 +76,7 @@ public class SSPController {
     }
 
     /**
-     * Function to change the player pick label
+     * change the player pick label
      */
     @FXML
     private void onPaperClick() {
@@ -93,7 +87,7 @@ public class SSPController {
     }
 
     /**
-     * Function to request a computer choice and pass it into the Logic class for evaluation
+     * request a computer choice and pass it into the Logic class for evaluation
      */
     @FXML
     private void onPickClick() {
@@ -108,7 +102,7 @@ public class SSPController {
     }
 
     /**
-     * Function to change the score on screen
+     * change the score on screen
      */
     @FXML
     private void updateScore() {
@@ -117,7 +111,7 @@ public class SSPController {
     }
 
     /**
-     * Function to determine whether the score should be decreased or increased
+     * determine whether the score should be decreased or increased
      */
     private void determineScoreChange() {
         if (Logic.outcome.equals("WIN!")) {
@@ -129,7 +123,7 @@ public class SSPController {
     }
 
     /**
-     * Function to initialize functions which check the winner and update the screen
+     * initialize functions which check the winner and update the screen
      * @param logic Parameter with the static outcome variable
      */
     private void checkWinnerAndDisplayResults(Logic logic) {
@@ -148,21 +142,21 @@ public class SSPController {
     }
 
     /**
-     * Function to disable the pickButton until the new round
+     * disable the pickButton until the new round
      */
     private void disablePickButtonOnRoundEnd() {
         pickButton.setDisable(true);
     }
 
     /**
-     * Function to enable the pickButton on a new round
+     * enable the pickButton on a new round
      */
     private void enablePickButtonOnNewRound() {
         pickButton.setDisable(false);
     }
 
     /**
-     * Function to determine whether the result has already been shown or not
+     * determine whether the result has already been shown or not
      */
     private void roundLogic() {
         if (showedResult) resetSelections();
@@ -170,37 +164,37 @@ public class SSPController {
     }
 
     /**
-     * Function to reset variables and fields after a succesful round
+     * reset variables and fields after a succesful round
      */
     private void resetSelections() {
         computerPick.setText(String.valueOf(Action.NONE));
-        disableVisiblity();
+        disableLabelVisiblity();
         Logic.outcome = "";
     }
 
     /**
-     * Function to change the text of the winner label based on the static outcome variable
+     * change the text of the winner label based on the static outcome variable
      * It also lets roundLogic() know if it should reset
      */
     private void showResult() {
         winLossLabel.setText(Logic.outcome);
-        enableVisiblity();
+        enableLabelVisiblity();
         showedResult = true;
     }
 
     /**
-     * Function to enable the labels which display the computer pick and winner label
+     * enable the labels which display the computer pick and winner label
      */
-    private void enableVisiblity() {
+    private void enableLabelVisiblity() {
         computerPick.setVisible(true);
         comLabel.setVisible(true);
         winLossLabel.setVisible(true);
     }
 
     /**
-     * Function to disable the labels which display the computer pick and winner label
+     * disable the labels which display the computer pick and winner label
      */
-    private void disableVisiblity() {
+    private void disableLabelVisiblity() {
         computerPick.setVisible(false);
         comLabel.setVisible(false);
         winLossLabel.setVisible(false);
