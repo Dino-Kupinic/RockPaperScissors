@@ -95,7 +95,7 @@ public class SSPController {
             Player computer = Computer.getComputerChoice();
             computerPick.setText(String.valueOf(computer.getAction()));
             Logic logic = new Logic(player, computer);
-            checkWinnerAndDisplayResults(logic);
+            checkWinner(logic);
         } catch (InvalidComputerAction e) {
             System.out.println(e.getMessage());
         }
@@ -105,7 +105,7 @@ public class SSPController {
      * change the score on screen
      */
     @FXML
-    private void updateScore() {
+    public void updateScore() {
         determineScoreChange();
         scoreLabel.setText(String.valueOf(Score.score));
     }
@@ -126,25 +126,27 @@ public class SSPController {
      * initialize functions which check the winner and update the screen
      * @param logic Parameter with the static outcome variable
      */
-    private void checkWinnerAndDisplayResults(Logic logic) {
+    private void checkWinner(Logic logic) {
         try {
             logic.checkRoundWin();
-
-            ProgressBarHandler progressBarHandler = new ProgressBarHandler();
-            progressBarHandler.loadProgressBar(progressBar);
-
-            showResult();
-            updateScore();
-            disablePickButtonOnRoundEnd();
+            initProgressBar();
         } catch (InvalidLogicCase e) {
             System.out.println(e.getMessage());
         }
     }
 
     /**
+     * start the progress bar
+     */
+    private void initProgressBar() {
+        ProgressBarHandler progressBarHandler = new ProgressBarHandler();
+        progressBarHandler.loadProgressBar(progressBar, this);
+    }
+
+    /**
      * disable the pickButton until the new round
      */
-    private void disablePickButtonOnRoundEnd() {
+    public void disablePickButtonOnRoundEnd() {
         pickButton.setDisable(true);
     }
 
@@ -176,7 +178,7 @@ public class SSPController {
      * change the text of the winner label based on the static outcome variable
      * It also lets roundLogic() know if it should reset
      */
-    private void showResult() {
+    public void showResult() {
         winLossLabel.setText(Logic.outcome);
         enableLabelVisiblity();
         showedResult = true;

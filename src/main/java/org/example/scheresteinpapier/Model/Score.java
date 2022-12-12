@@ -22,7 +22,8 @@ public class Score {
      * subtract from the player score based on the global scoreLoss variable
      */
     public static void subtractFromScore() {
-        score -= scoreLoss;
+        if (score != 0 && score != -1)
+            score -= scoreLoss;
     }
 
     /**
