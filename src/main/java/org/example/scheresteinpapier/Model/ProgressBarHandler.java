@@ -27,19 +27,17 @@ public class ProgressBarHandler extends Thread {
      */
     public void loadProgressBar(ProgressBar bar, SSPController controller) {
         final Task<Void> task = new Task<>() {
-            final int ITERNATIONS = 100;
+            final int ITERATIONS = 100;
             @Override
             protected Void call() throws Exception {
-                for (int i = 0; i < ITERNATIONS; i++) {
-                    updateProgress(i + 1, ITERNATIONS);
+                for (int i = 0; i < ITERATIONS; i++) {
+                    updateProgress(i + 1, ITERATIONS);
                     Thread.sleep(5);
                 }
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-                        controller.showResult();
-                        controller.updateScore();
-                        controller.disablePickButtonOnRoundEnd();
-                    }
+                Platform.runLater(() -> {
+                    controller.showResult();
+                    controller.updateScore();
+                    controller.disablePickButtonOnRoundEnd();
                 });
                 return null;
             }
