@@ -5,7 +5,7 @@
  * Kurzbeschreibung
  *
  * @author  : Dino Kupinic, Max Wöss
- * @date    : 4.12.2022
+ * @date    : 13.12.2022
  *
  * @details
  *   Class to handle the progress bar
@@ -17,8 +17,6 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.ProgressBar;
 import org.example.scheresteinpapier.Controller.SSPController;
-
-import java.util.Date;
 
 public class ProgressBarHandler extends Thread {
     /**
@@ -38,7 +36,6 @@ public class ProgressBarHandler extends Thread {
                 Platform.runLater(() -> {
                     controller.showResult();
                     controller.updateScore();
-                    controller.disablePickButtonOnRoundEnd();
                 });
                 return null;
             }

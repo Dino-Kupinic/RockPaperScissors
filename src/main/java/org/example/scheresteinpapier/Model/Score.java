@@ -5,7 +5,7 @@
  * Kurzbeschreibung
  *
  * @author  : Dino Kupinic, Max Wöss
- * @date    : 3.12.2022
+ * @date    : 13.12.2022
  *
  * @details
  *  Class for handling the player score
@@ -22,8 +22,8 @@ public class Score {
      * subtract from the player score based on the global scoreLoss variable
      */
     public static void subtractFromScore() {
-        if (score != 0 && score != -1)
-            score -= scoreLoss;
+        // Score can't go below 0
+        if (score != 0 && score != -1) score -= scoreLoss;
     }
 
     /**

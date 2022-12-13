@@ -5,11 +5,10 @@
  * Kurzbeschreibung
  *
  * @author  : Dino Kupinic, Max Wöss
- * @date    : 4.12.2022
+ * @date    : 13.12.2022
  *
  * @details
  *   Basic JavaFX Application Class
- *
  */
 
 package org.example.scheresteinpapier;

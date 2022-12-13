@@ -5,11 +5,10 @@
  * Kurzbeschreibung
  *
  * @author  : Dino Kupinic, Max Wöss
- * @date    : 4.12.2022
+ * @date    : 13.12.2022
  *
  * @details
  *   class to handle non-Player actions
- *
  */
 
 package org.example.scheresteinpapier.Model;
@@ -31,8 +30,8 @@ public class Computer {
      * generate value between 1 and 3 which gets evaluated into an action
      * @return a double value (1.0, 2.0 or 3.0)
      */
-    private static double generateRandomNumber() {
-        return Math.floor(Math.random() * 3 + 1);
+    private static int generateRandomNumber() {
+        return (int)Math.floor(Math.random() * 3 + 1);
     }
 
     /**
@@ -40,7 +39,7 @@ public class Computer {
      * @return Action which will be evaluated in order to decide who won the game
      */
     private static Action getComputerAction() throws InvalidComputerAction {
-        switch ((int) generateRandomNumber()) {
+        switch (generateRandomNumber()) {
             case 1:
                 return Action.ROCK;
             case 2:

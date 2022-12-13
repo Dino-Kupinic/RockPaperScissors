@@ -5,7 +5,7 @@
  * Kurzbeschreibung
  *
  * @author  : Dino Kupinic, Max Wöss
- * @date    : 3.12.2022
+ * @date    : 13.12.2022
  *
  * @details
  *   Class to handle input from the user through GUI interaction
@@ -22,7 +22,6 @@ import org.example.scheresteinpapier.Exceptions.InvalidLogicCase;
 import org.example.scheresteinpapier.Model.*;
 
 public class SSPController {
-
     /**
      * JavaFX FXML controls
      */
@@ -61,7 +60,7 @@ public class SSPController {
         player.setAction(Action.SCISSOR);
         playerPick.setText(String.valueOf(Action.SCISSOR));
         enablePickButtonOnNewRound();
-        roundLogic();
+        checkResetNeeded();
     }
 
     /**
@@ -72,7 +71,7 @@ public class SSPController {
         player.setAction(Action.ROCK);
         playerPick.setText(String.valueOf(Action.ROCK));
         enablePickButtonOnNewRound();
-        roundLogic();
+        checkResetNeeded();
     }
 
     /**
@@ -83,7 +82,7 @@ public class SSPController {
         player.setAction(Action.PAPER);
         playerPick.setText(String.valueOf(Action.PAPER));
         enablePickButtonOnNewRound();
-        roundLogic();
+        checkResetNeeded();
     }
 
     /**
@@ -114,11 +113,9 @@ public class SSPController {
      * determine whether the score should be decreased or increased
      */
     private void determineScoreChange() {
-        if (Logic.outcome.equals("WIN!")) {
-            Score.addToScore();
-        }
-        if (Logic.outcome.equals("LOSS!")) {
-            Score.subtractFromScore();
+        switch (Logic.outcome) {
+            case "WIN!" -> Score.addToScore();
+            case "LOSS!" -> Score.subtractFromScore();
         }
     }
 
@@ -160,7 +157,7 @@ public class SSPController {
     /**
      * determine whether the result has already been shown or not
      */
-    private void roundLogic() {
+    private void checkResetNeeded() {
         if (showedResult) resetSelections();
         showedResult = false;
     }

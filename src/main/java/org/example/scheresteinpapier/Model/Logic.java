@@ -5,7 +5,7 @@
  * Kurzbeschreibung
  *
  * @author  : Dino Kupinic, Max Wöss
- * @date    : 3.12.2022
+ * @date    : 13.12.2022
  *
  * @details
  *   Class to handle the logic of rock paper scissors
@@ -18,24 +18,22 @@ import org.example.scheresteinpapier.Exceptions.InvalidLogicCase;
 import java.util.Objects;
 
 public class Logic {
-
     public static boolean isSelectionValid = false;
     public static String outcome = "";
 
     /**
      * Player references which will be filled by the constructor
      */
-    Player logicPlayer;
-    Player logicComPlayer;
+    Player logicPlayer, logicComputer;
 
     /**
      * Constructor for assigining the player objects from onPickClick() in SSPController.java
-     * @param player1 the user
-     * @param player2 Computer
+     * @param player1 user
+     * @param player2 computer
      */
     public Logic(Player player1, Player player2) {
         logicPlayer = player1;
-        logicComPlayer = player2;
+        logicComputer = player2;
     }
 
     /**
@@ -62,7 +60,7 @@ public class Logic {
      * checks if the userinput isn't NONE
      */
     private void checkValidInput() {
-        if (logicPlayer.getAction() != Action.NONE && logicComPlayer.getAction() != Action.NONE) {
+        if (logicPlayer.getAction() != Action.NONE && logicComputer.getAction() != Action.NONE) {
             isSelectionValid = true;
         }
     }
@@ -71,7 +69,7 @@ public class Logic {
      * checks if the actions of both players are equal
      */
     private void checkGameDraw() {
-        if (isSelectionValid && logicPlayer.getAction() == logicComPlayer.getAction()) {
+        if (isSelectionValid && logicPlayer.getAction() == logicComputer.getAction()) {
             outcome = "DRAW!";
         }
     }
@@ -82,15 +80,9 @@ public class Logic {
      */
     private void checkGameWinner() throws InvalidLogicCase {
         switch (logicPlayer.getAction()) {
-            case SCISSOR:
-                outcome = checkScissorCases();
-                break;
-            case ROCK:
-                outcome = checkRockCases();
-                break;
-            case PAPER:
-                outcome = checkPaperCases();
-                break;
+            case SCISSOR -> outcome = checkScissorCases();
+            case ROCK -> outcome = checkRockCases();
+            case PAPER -> outcome = checkPaperCases();
         }
     }
 
@@ -100,8 +92,8 @@ public class Logic {
      * @throws InvalidLogicCase thrown when win or loss is not triggered
      */
     private String checkScissorCases() throws InvalidLogicCase {
-        if (logicComPlayer.getAction() == Action.PAPER) return "WIN!";
-        if (logicComPlayer.getAction() == Action.ROCK) return "LOSS!";
+        if (logicComputer.getAction() == Action.PAPER) return "WIN!";
+        if (logicComputer.getAction() == Action.ROCK) return "LOSS!";
         throw new InvalidLogicCase();
     }
 
@@ -111,8 +103,8 @@ public class Logic {
      * @throws InvalidLogicCase thrown when win or loss is not triggered
      */
     private String checkRockCases() throws InvalidLogicCase {
-        if (logicComPlayer.getAction() == Action.SCISSOR) return "WIN!";
-        if (logicComPlayer.getAction() == Action.PAPER) return "LOSS!";
+        if (logicComputer.getAction() == Action.SCISSOR) return "WIN!";
+        if (logicComputer.getAction() == Action.PAPER) return "LOSS!";
         throw new InvalidLogicCase();
     }
 
@@ -122,8 +114,8 @@ public class Logic {
      * @throws InvalidLogicCase thrown when win or loss is not triggered
      */
     private String checkPaperCases() throws InvalidLogicCase {
-        if (logicComPlayer.getAction() == Action.ROCK) return "WIN!";
-        if (logicComPlayer.getAction() == Action.SCISSOR) return "LOSS!";
+        if (logicComputer.getAction() == Action.ROCK) return "WIN!";
+        if (logicComputer.getAction() == Action.SCISSOR) return "LOSS!";
         throw new InvalidLogicCase();
     }
 }
