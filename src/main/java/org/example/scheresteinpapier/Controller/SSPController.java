@@ -52,6 +52,7 @@ public class SSPController {
     /**
      * Disable button on program start
      */
+
     @FXML
     public void initialize() {
         player = new Player();
