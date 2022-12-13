@@ -34,6 +34,7 @@ public class ProgressBarHandler extends Thread {
                     Thread.sleep(5);
                 }
                 Platform.runLater(() -> {
+                    controller.enableButtons();
                     controller.showResult();
                     controller.updateScore();
                 });

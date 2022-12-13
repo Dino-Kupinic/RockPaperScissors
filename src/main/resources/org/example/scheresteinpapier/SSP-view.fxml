@@ -13,7 +13,7 @@
          </image>
       </ImageView>
       <ImageView fx:id="scissorButton" fitHeight="96.0" fitWidth="96.0" layoutX="120.0" layoutY="168.0" onMouseClicked="#onScissorClick" pickOnBounds="true" preserveRatio="true" styleClass="scissorButton" />
-      <ImageView fx:id="stoneButton" fitHeight="96.0" fitWidth="96.0" layoutX="272.0" layoutY="168.0" onMouseClicked="#onStoneClick" pickOnBounds="true" preserveRatio="true" styleClass="stoneButton" />
+      <ImageView fx:id="rockButton" fitHeight="96.0" fitWidth="96.0" layoutX="272.0" layoutY="168.0" onMouseClicked="#onStoneClick" pickOnBounds="true" preserveRatio="true" styleClass="stoneButton" />
       <ImageView fx:id="paperButton" fitHeight="96.0" fitWidth="96.0" layoutX="427.0" layoutY="168.0" onMouseClicked="#onPaperClick" pickOnBounds="true" preserveRatio="true" styleClass="paperButton" />
       <Label fx:id="scoreLabel" layoutX="90.0" layoutY="304.0" prefHeight="16.0" prefWidth="96.0" text="0" textFill="WHITE">
          <font>

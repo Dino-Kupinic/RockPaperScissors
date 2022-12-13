@@ -34,9 +34,15 @@ public class SSPController {
     @FXML
     private Label winLossLabel;
     @FXML
+    private Label scoreLabel;
+    @FXML
     private ImageView pickButton;
     @FXML
-    private Label scoreLabel;
+    private ImageView paperButton;
+    @FXML
+    private ImageView rockButton;
+    @FXML
+    private ImageView scissorButton;
     @FXML
     private ProgressBar progressBar;
 
@@ -96,6 +102,7 @@ public class SSPController {
     @FXML
     private void onPickClick() {
         try {
+            disableButtons();
             Player computer = Computer.getComputerChoice();
             computerPick.setText(String.valueOf(computer.getAction()));
             Logic logic = new Logic(player, computer);
@@ -202,5 +209,23 @@ public class SSPController {
         computerPick.setVisible(false);
         comLabel.setVisible(false);
         winLossLabel.setVisible(false);
+    }
+
+    /**
+     * disable Action buttons
+     */
+    private void disableButtons() {
+        scissorButton.setDisable(true);
+        paperButton.setDisable(true);
+        rockButton.setDisable(true);
+    }
+
+    /**
+     * enable Action buttons
+     */
+    public void enableButtons() {
+        scissorButton.setDisable(false);
+        paperButton.setDisable(false);
+        rockButton.setDisable(false);
     }
 }
