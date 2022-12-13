@@ -153,7 +153,7 @@ public class SSPController {
     /**
      * enable the pickButton on a new round
      */
-    private void enablePickButtonOnNewRound() {
+    public void enablePickButtonOnNewRound() {
         pickButton.setDisable(false);
     }
 

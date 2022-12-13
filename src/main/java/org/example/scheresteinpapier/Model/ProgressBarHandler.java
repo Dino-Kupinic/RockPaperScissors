@@ -30,6 +30,7 @@ public class ProgressBarHandler extends Thread {
             final int ITERATIONS = 100;
             @Override
             protected Void call() throws Exception {
+                controller.disablePickButtonOnRoundEnd();
                 for (int i = 0; i < ITERATIONS; i++) {
                     updateProgress(i + 1, ITERATIONS);
                     Thread.sleep(5);
