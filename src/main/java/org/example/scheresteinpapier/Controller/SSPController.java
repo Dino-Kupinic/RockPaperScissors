@@ -59,8 +59,7 @@ public class SSPController {
     private void onScissorClick() {
         player.setAction(Action.SCISSOR);
         playerPick.setText(String.valueOf(Action.SCISSOR));
-        enablePickButtonOnNewRound();
-        checkResetNeeded();
+        roundLogic();
     }
 
     /**
@@ -70,8 +69,7 @@ public class SSPController {
     private void onStoneClick() {
         player.setAction(Action.ROCK);
         playerPick.setText(String.valueOf(Action.ROCK));
-        enablePickButtonOnNewRound();
-        checkResetNeeded();
+        roundLogic();
     }
 
     /**
@@ -81,6 +79,13 @@ public class SSPController {
     private void onPaperClick() {
         player.setAction(Action.PAPER);
         playerPick.setText(String.valueOf(Action.PAPER));
+        roundLogic();
+    }
+
+    /**
+     * enable pick button and check if reset needed
+     */
+    private void roundLogic() {
         enablePickButtonOnNewRound();
         checkResetNeeded();
     }
